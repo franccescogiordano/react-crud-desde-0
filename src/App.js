@@ -5,7 +5,7 @@ import EditUserForm from "./components/EditUserForm";
 import { v4 as uuidv4 } from 'uuid'; //generador de ids automaticos
 
 function App() {
-  const usersData = [
+  const usersData = [ //datos base
     { id: uuidv4(), name: 'Tania', username: 'floppydiskette' },
     { id: uuidv4(), name: 'Craig', username: 'siliconeidolon' },
     { id: uuidv4(), name: 'Ben', username: 'benisphere' },
@@ -57,7 +57,7 @@ function App() {
             edit ? (
               <div>
                 <h2>Edit user</h2>
-                <EditUserForm
+                <EditUserForm //añado el componente editar usuario
                   currentUser={currentUser}
                   updateUser={updateUser}
                 />
@@ -65,7 +65,8 @@ function App() {
             ) : (
               <div>
                 <h2>Add user</h2>
-                <AddUserForm addUser={addUser} />
+                <AddUserForm //añado el componente cargar usuario
+                addUser={addUser} />
               </div>
             )
           }
@@ -73,7 +74,7 @@ function App() {
         </div>
         <div className="flex-large">
           <h2>View users</h2>
-          <UserTable
+          <UserTable //añado el componente tabla y le paso mediante props datos necesarios para su creacion
             users={users}
             deleteUser={deleteUser}
             editRow={editRow}

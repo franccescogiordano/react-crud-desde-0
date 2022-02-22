@@ -3,13 +3,16 @@ import { useState } from "react";
 import { useForm } from 'react-hook-form'
 const EditUserForm = (props) => {
     const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm({
-        defaultValues: props.currentUser
+        defaultValues: props.currentUser //cargo datos por defecto dle usuario al inicializar el formulario
     });
-    setValue('name', props.currentUser.name);
-    setValue('username', props.currentUser.username);
+    //----- cambio los datos del formulario con cada click que haga el usuario en edit-------
+  /*|*/  setValue('name', props.currentUser.name);  /*|*/
+    /*|*/  setValue('username', props.currentUser.username); /*|*/
+    //-----------------------------------------------------------
+
     const onSubmit = (data, e) => {
         //  console.log(data) para mostrar datos en consola del objeto
-        data.id= props.currentUser.id
+        data.id = props.currentUser.id //seteo el id de data para que no tire error
         props.updateUser(props.currentUser.id, data)
         e.target.reset();
     }
@@ -32,12 +35,15 @@ const EditUserForm = (props) => {
                     })}
                     className='form-control my-2'
                 />
+
                 {errors.name?.type === 'required' && (
+                    //mensaje de error para campo nombre, en caso de no ingresarse
                     <span className='text-danger text-small d-block mb-2'>
                         Nombre obligatorio
                     </span>
                 )}
                 {errors.username?.type === 'required' && (
+                    //mensaje de error para campo usuario, en caso de no ingresarse
                     <span className='text-danger text-small d-block mb-2'>
                         Usuario obligatorio
                     </span>
