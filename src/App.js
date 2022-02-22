@@ -16,9 +16,9 @@ function App() {
   //add users
 const addUser = (user) =>{ //constructor
   user.id=uuidv4()
-  setUsers({
+  setUsers([
     ...users,user
-  })
+  ])
 }
 
   return (
@@ -27,7 +27,7 @@ const addUser = (user) =>{ //constructor
       <div className="flex-row">
         <div className="flex-large">
           <h2>Add user</h2>
-          <AddUserForm/>
+          <AddUserForm addUser={addUser}/>
         </div>
         <div className="flex-large">
           <h2>View users</h2>
