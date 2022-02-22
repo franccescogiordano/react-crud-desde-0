@@ -1,18 +1,17 @@
-import React, { Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { useState } from "react";
 import { useForm } from 'react-hook-form'
 const AddUserForm = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = (data,e) => {
-      //  console.log(data) para mostrar datos en consola del objeto
+    const onSubmit = (data, e) => {
+        //  console.log(data) para mostrar datos en consola del objeto
         props.addUser(data)
         e.target.reset();
     }
-   
+
 
     return (
         <Fragment>
-            <h1>Formulario</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Name</label>
                 <input
@@ -33,7 +32,7 @@ const AddUserForm = (props) => {
                         Nombre obligatorio
                     </span>
                 )}
-                  {errors.username?.type === 'required' && (
+                {errors.username?.type === 'required' && (
                     <span className='text-danger text-small d-block mb-2'>
                         Usuario obligatorio
                     </span>
