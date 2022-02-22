@@ -14,11 +14,17 @@ function App() {
   const [users,setUsers] = useState(usersData);
 
   //add users
-const addUser = (user) =>{ //constructor
+const addUser = (user) =>{ //constructor para cargar usuarios
   user.id=uuidv4()
   setUsers([
     ...users,user
   ])
+}
+
+//delete users
+const deleteUser = (id) =>{ 
+  setUsers(users.filter((user) => user.id !== id)) //filtro para borrar usuarios que tengan la misma id 
+  //                                                que se recibe por parametro.
 }
 
   return (
@@ -31,7 +37,7 @@ const addUser = (user) =>{ //constructor
         </div>
         <div className="flex-large">
           <h2>View users</h2>
-          <UserTable users={users}/>
+          <UserTable users={users} deleteUser={deleteUser}/>
         </div>
       </div>
     </div>

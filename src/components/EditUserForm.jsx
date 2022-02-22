@@ -1,7 +1,7 @@
 import React, { Fragment} from 'react';
 import { useState } from "react";
 import { useForm } from 'react-hook-form'
-const AddUserForm = (props) => {
+const EditUserForm = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data,e) => {
       //  console.log(data) para mostrar datos en consola del objeto
@@ -44,4 +44,4 @@ const AddUserForm = (props) => {
     );
 }
 
-export default AddUserForm;
+export default EditUserForm;
