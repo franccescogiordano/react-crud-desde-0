@@ -1,12 +1,12 @@
 import { useState } from "react";
 import UserTable from "./components/UserTable";
-
+import { v4 as uuidv4 } from 'uuid'; //generador de ids automaticos
 
 function App() {
   const usersData = [
-    { id: 1, name: 'Tania', username: 'floppydiskette' },
-    { id: 2, name: 'Craig', username: 'siliconeidolon' },
-    { id: 3, name: 'Ben', username: 'benisphere' },
+   { id: uuidv4(), name: 'Tania', username: 'floppydiskette' },
+    { id: uuidv4(), name: 'Craig', username: 'siliconeidolon' },
+    { id: uuidv4(), name: 'Ben', username: 'benisphere' },
   ]
 
   //state
